@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>வேலை தேடுபவர்கள் | இணைப்புப்பாலம்</title>
+
+    <link rel="stylesheet" href="seekers.css">
+</head>
+
+<body>
+
+<!-- =========================================================
+     PATCH 1 : HEADER / NAVIGATION
+     வேலை தேடுபவர்கள் Public Page-ன் மேல்பகுதி.
+     ========================================================= -->
+<header class="site-header">
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../../index.html" class="brand">
+        <img src="../../assets/logo/logo.png" alt="Logo" class="brand-logo">
+        
+
+       </a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../../index.html">முகப்பு</a></li>
+        <li><a href="../../job-seeker/job-seeker.html">வேலை வேண்டும் </a></li>
+        <li><a href="../../job-provider/job-provider.html">ஆட்கள் வேண்டும்</a></li>
+        <li><a href="../../public/jobs/jobs.html">வேலை கொடுப்பவர்கள்</a></li>
+        <li><a href="../../public/seekers/seekers.html" class="active">வேலை தேடுபவர்கள்</a></li>
+      </ul>
+
+    </div>
+  </nav>
+</header>
+
+
+<!-- =========================================================
+     PATCH 2 : HERO SECTION
+     Public-க்கு இந்த பக்கத்தின் நோக்கத்தை அறிமுகப்படுத்தும் பகுதி.
+     ========================================================= -->
+
+<main>
+
+<!-- =========================================================
+     PATCH 4 : SEEKER CARDS
+     Public-ல் காட்ட வேண்டிய பொதுவான தகவல்கள் மட்டும்.
+     Mobile Number / முழு Address போன்ற தனிப்பட்ட தகவல்கள் இங்கே இல்லை.
+     ========================================================= -->
+
+<section class="seekers-section">
+
+    <div class="section-heading centered">
+
+        <span>வேலை தேடுபவர்கள்</span>
+
+        <h2>
+            திறமை கொண்ட நபர்களை கண்டறியுங்கள்
+        </h2>
+
+        <p id="resultCount">
+            வேலை தேடுபவர்கள்
+        </p>
+
+    </div>
+
+
+    <div class="seekers-grid" id="seekersGrid">
+
+
+        <!-- SEEKER CARD 1 -->
+
+        <article
+            class="seeker-card"
+            data-name="அருண்"
+            data-skill="driver"
+            data-location="chennai"
+        >
+
+            <div class="seeker-top">
+
+                <div class="avatar">
+                    <span>அ</span>
+                </div>
+
+                <div class="availability">
+                    <span></span>
+                    வேலை தேடுகிறார்
+                </div>
+
+            </div>
+
+            <div class="seeker-info">
+
+                <h3>அருண்</h3>
+
+                <p class="job-title">
+                    Driver / Delivery
+                </p>
+
+                <div class="info-list">
+
+                    <div>
+                        <span>📍</span>
+                        <span>சென்னை</span>
+                    </div>
+
+                    <div>
+                        <span>🛠</span>
+                        <span>Driving, Delivery</span>
+                    </div>
+
+                    <div>
+                        <span>💼</span>
+                        <span>2+ வருட அனுபவம்</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <button class="view-profile-btn"
+                    type="button"
+                    data-name="அருண்">
+                சுயவிவரம் பார்க்க
+            </button>
+
+        </article>
+
+
+        <!-- SEEKER CARD 2 -->
+
+        <article
+            class="seeker-card"
+            data-name="சரவணன்"
+            data-skill="sales"
+            data-location="chengalpattu"
+        >
+
+            <div class="seeker-top">
+
+                <div class="avatar">
+                    <span>ச</span>
+                </div>
+
+                <div class="availability">
+                    <span></span>
+                    வேலை தேடுகிறார்
+                </div>
+
+            </div>
+
+            <div class="seeker-info">
+
+                <h3>சரவணன்</h3>
+
+                <p class="job-title">
+                    Sales / Marketing
+                </p>
+
+                <div class="info-list">
+
+                    <div>
+                        <span>📍</span>
+                        <span>செங்கல்பட்டு</span>
+                    </div>
+
+                    <div>
+                        <span>🛠</span>
+                        <span>Sales, Marketing</span>
+                    </div>
+
+                    <div>
+                        <span>💼</span>
+                        <span>1 வருட அனுபவம்</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <button class="view-profile-btn"
+                    type="button"
+                    data-name="சரவணன்">
+                சுயவிவரம் பார்க்க
+            </button>
+
+        </article>
+
+
+        <!-- SEEKER CARD 3 -->
+
+        <article
+            class="seeker-card"
+            data-name="மீனா"
+            data-skill="office"
+            data-location="kanchipuram"
+        >
+
+            <div class="seeker-top">
+
+                <div class="avatar">
+                    <span>மீ</span>
+                </div>
+
+                <div class="availability">
+                    <span></span>
+                    வேலை தேடுகிறார்
+                </div>
+
+            </div>
+
+            <div class="seeker-info">
+
+                <h3>மீனா</h3>
+
+                <p class="job-title">
+                    Office Assistant
+                </p>
+
+                <div class="info-list">
+
+                    <div>
+                        <span>📍</span>
+                        <span>காஞ்சிபுரம்</span>
+                    </div>
+
+                    <div>
+                        <span>🛠</span>
+                        <span>Computer, Office Work</span>
+                    </div>
+
+                    <div>
+                        <span>💼</span>
+                        <span>3 வருட அனுபவம்</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <button class="view-profile-btn"
+                    type="button"
+                    data-name="மீனா">
+                சுயவிவரம் பார்க்க
+            </button>
+
+        </article>
+
+
+    </div>
+
+    <div class="no-results" id="noResults">
+        <div>🔎</div>
+        <h3>தேடலுக்கு பொருத்தமான நபர் கிடைக்கவில்லை</h3>
+        <p>வேறு பெயர், திறமை அல்லது பகுதியை முயற்சி செய்யுங்கள்.</p>
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PATCH 5 : PRIVACY NOTICE
+     Public தகவல்கள் மட்டுமே காட்டப்படுகின்றன என்பதை தெரிவிக்கும் பகுதி.
+     ========================================================= -->
+
+<section class="privacy-section">
+
+    <div class="privacy-box">
+
+        <div class="privacy-icon">
+            🔒
+        </div>
+
+        <div>
+            <h3>உங்கள் தனியுரிமை எங்களுக்கு முக்கியம்</h3>
+
+            <p>
+                வேலை தேடுபவர்களின் தனிப்பட்ட தொடர்பு எண்,
+                முழு முகவரி மற்றும் பிற தனிப்பட்ட தகவல்கள்
+                Public-ல் காட்டப்படாது.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+<!-- =========================================================
+     PATCH 07 — FOOTER
+     ========================================================= -->
+
+<footer class="jobs-footer">
+
+    <div class="jobs-footer-inner">
+
+        <div class="jobs-footer-left">
+
+            <p>
+                © 2026 இணைப்புப்பாலம் -
+                அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை
+            </p>
+
+        </div>
+
+
+        <div class="jobs-footer-socials">
+
+            <a href="https://www.facebook.com/profile.php?id=61593341843801" aria-label="Facebook">
+                <img src="../../assets/icons/Facebook.svg"
+                     alt="Facebook">
+            </a>
+
+            <a href="https://www.instagram.com/inaippu.palam/?hl=en" aria-label="Instagram">
+                <img src="../../assets/icons/Instagram.svg"
+                     alt="Instagram">
+            </a>
+
+            <a href="https://www.youtube.com/@inaippupalam" aria-label="YouTube">
+                <img src="../../assets/icons/YouTube.svg"
+                     alt="YouTube">
+            </a>
+
+            <a href="https://wa.me/917373537070" aria-label="WhatsApp">
+                <img src="../../assets/icons/WhatsApp.svg"
+                     alt="WhatsApp">
+            </a>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<script src="seekers.js"></script>
+
+</body>
+</html>

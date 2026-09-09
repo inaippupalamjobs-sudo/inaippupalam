@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <!-- =====================================================
+         PATCH 0 - அடிப்படை Website அமைப்பு
+         BATCH 0.1: மொழி மற்றும் Mobile Viewport
+         - charset=UTF-8: தமிழ் எழுத்து சரியா தெரிய இது அவசியம்
+         - viewport: மொபைலில் Website சரியா தெரிய இது
+         BATCH 0.2: Logo மற்றும் CSS இணைப்பு
+         ===================================================== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO META TAGS - INAIPPU PALAM - ALL TAMIL NADU -->
+     
+<meta name="description" content="தமிழ்நாடு முழுவதும் வேலை வழங்க - இணைப்பு பாலம். கோவை, திருப்பூர், சென்னை, மதுரை, சேலம், திருச்சி, ஈரோடு, கரூர், திண்டுக்கல் உட்பட அனைத்து மாவட்டங்களிலும் வேலைக்கு ஆட்கள் தேவை என்றால் இங்கே பதிவு செய்யுங்கள்.">
+<meta name="keywords" content="Tamil Nadu jobs, All Tamil Nadu jobs, Coimbatore jobs, Tiruppur jobs, Chennai jobs, Madurai jobs, Salem jobs, Trichy jobs, Erode jobs, Karur jobs, Dindigul jobs, Palladam jobs, வேலை வாய்ப்பு தமிழ்நாடு, தமிழ்நாடு வேலை, கோவை வேலை, திருப்பூர் வேலை, இணைப்பு பாலம், Inaippu Palam jobs, employer registration Tamil Nadu, job provider Tamil Nadu, all district jobs Tamil Nadu">
+<meta name="author" content="Inaippu Palam">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph for WhatsApp / Facebook Share -->
+<meta property="og:title" content="வேலை வழங்குபவர் - இணைப்பு பாலம் | தமிழ்நாடு முழுவதும்">
+<meta property="og:description" content="தமிழ்நாடு முழுவதும் உங்கள் நிறுவனத்திற்கு ஆட்கள் வேண்டுமா? இணைப்பு பாலத்தில் இலவசமாக பதிவு செய்யுங்கள்.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://inaippu-palam.vercel.app">
+<meta property="og:image" content="https://inaippu-palam.vercel.app/logo.png">
+
+<!-- Location SEO -->
+<meta name="geo.region" content="IN-TN">
+<meta name="geo.placename" content="Tamil Nadu">
+<meta name="geo.position" content="11.0168;76.9558">
+
+
+    <title>இணைப்புப் பாலம் | வேலை தேடுபவர்களுக்கும் வேலை கொடுப்பவர்களுக்கும் ஒரு நம்பிக்கையான பாலம்</title>
+    <link rel="icon" type="image/png" href="assets/logo/logo.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+   <!-- =====================================================
+         PATCH 1 - NAVIGATION BAR
+         BATCH 1.1: Logo பகுதி - முகப்புக்கு போகும்
+         BATCH 1.2: Hamburger Menu - மொபைலில் மட்டும் தெரியும், script.js இதை கண்ட்ரோல் பண்ணும்
+         BATCH 1.3: Nav Links - முக்கிய 4 பக்கங்களுக்கான Link
+         கவனிக்க: எல்லா Link-ம் ஒரே Folder பெயரில் இருக்கான்னு பாருங்க. job-seeker/ என்று முடிவு செய்தால் எல்லா இடத்திலும் அதையே பயன்படுத்துங்க.
+         ===================================================== -->
+
+
+<header class="site-header">
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <img src="assets/logo/logo.png" alt="Logo" class="brand-logo">
+        
+      </a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active">முகப்பு</a></li>
+        <li><a href="job-seeker/job-seeker.html">வேலை வேண்டும் </a></li>
+        <li><a href="job-provider/job-provider.html">ஆட்கள் வேண்டும்</a></li>
+        <li><a href="public/jobs/jobs.html">வேலை கொடுப்பவர்கள்</a></li>
+        <li><a href="public/seekers/seekers.html">வேலை தேடுபவர்கள்</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+
+<!-- =========================================================
+     PATCH 1 — NAVIGATION BAR — END
+========================================================= -->
+
+    <main>
+        <!-- =====================================================
+             PATCH 2 - HERO / 3 ENTRY CARDS
+             BATCH 2.1: இடது Card - வேலை கொடுப்பவர் - job-provider பக்கத்துக்கு போகும்
+             BATCH 2.2: நடு Card - இது வெறும் தகவல் மட்டும், Click ஆகாது
+             BATCH 2.3: வலது Card - வேலை தேடுபவர் - job-seekers பக்கத்துக்கு போகும்
+             ===================================================== -->
+        <section class="hero-section">
+            <div class="hero-intro">
+                <span class="eyebrow">🌉 மக்களை இணைக்கும் ஒரு நம்பிக்கையான முயற்சி</span>
+                <h1><span>சரியான நபருக்கு</span><strong>சரியான வாய்ப்பு</strong></h1>
+                <p>வேலை தேடுபவர்களையும் வேலை கொடுப்பவர்களையும் ஒரே இடத்தில் இணைக்கும் உங்கள் நம்பிக்கையான <b>இணைப்புப் பாலம்.</b></p>
+            </div>
+            <div class="poster-grid two-only">
+                <a href="job-provider/job-provider.html" class="poster-card employer-card" aria-label="வேலைக்கு ஆட்கள் தேவை - பதிவு செய்ய">
+                    <div class="poster-image-wrap"><img src="assets/images/employer-poster.png" alt="உங்களுக்கு வேலைக்கு ஆட்கள் தேவையா?"></div>
+                    <div class="poster-card-info"><span>🏢 நிறுவனங்கள் / கடைகள் / தொழில்கள்</span><h2>ஆட்கள் தேவையா?</h2><p>உங்களுக்கு தேவையான நபர்களை கண்டுபிடிக்க பதிவு செய்யுங்கள்.</p><span class="poster-action">பதிவு செய்யுங்கள் <b>→</b></span></div>
+                </a>
+                                <a href="job-seeker/job-seeker.html" class="poster-card seeker-card" aria-label="வேலை தேடுபவர் பதிவு செய்ய">
+                    <div class="poster-image-wrap"><img src="assets/images/job-seeker-poster.png" alt="உங்கள் திறமைக்கேற்ற வேலை வேண்டுமா?"></div>
+                    <div class="poster-card-info"><span>👷 படித்தவர் / படிக்காதவர் அனைவருக்கும்</span><h2>வேலை வேண்டுமா?</h2><p>உங்கள் திறமை மற்றும் அனுபவத்தை பதிவு செய்து வாய்ப்பை தேடுங்கள்.</p><span class="poster-action">பதிவு செய்யுங்கள் <b>→</b></span></div>
+                </a>
+            </div>
+            <div class="quick-actions">
+                <a href="job-seeker/job-seeker.html" class="quick-btn quick-seeker"><span>🔎</span><div><small>உங்கள் திறமைக்கேற்ற</small><strong>வேலை தேடுங்கள்</strong></div></a>
+                <a href="job-provider/job-provider.html" class="quick-btn quick-provider"><span>➕</span><div><small>உங்கள் நிறுவனத்திற்கு</small><strong>ஆட்களை தேடுங்கள்</strong></div></a>
+            </div>
+        </section>
+
+
+
+        <!-- PATCH 4 - SLIDER - script.js BATCH 4 இதை கண்ட்ரோல் பண்ணும் -->
+
+        <section class="message-slider-section">
+            <div class="slider-top-line"><span class="live-dot"></span><span>இணைப்புப் பாலம் தகவல்</span></div>
+            <div class="message-slider" id="messageSlider">
+                <article class="message-slide active"><div class="slide-icon">🌉</div><div><span>நம்பிக்கையின் தொடக்கம்</span><h3>எந்த அப்ளிகேஷனையும் டவுன்லோட் பண்ண வேண்டாம் இன்ஸ்டால். பண்ணவேண்டாம். நேரடியா உங்கள் தேவையை பூர்த்தி பண்ணவும்</h3></div></article>
+                <article class="message-slide"><div class="slide-icon">🤝</div><div><span>எங்கள் நோக்கம்</span><h3>இணைப்புப் பாலம்: வேலை தேடுபவர்களுக்கும் நிறுவனங்களுக்கும் இடையே ஒரு நம்பிக்கையான பாலம்.</h3></div></article>
+                <article class="message-slide"><div class="slide-icon">💙</div><div><span>அனைவருக்கும் ஒரு வாய்ப்பு</span><h3>நீங்க படிச்சவரா இருந்தாலும், படிக்காதவரா இருந்தாலும், உங்க திறமைக்கு ஏற்ற வேலை இங்கே காத்திருக்கு!</h3></div></article>
+            </div>
+            <div class="slider-controls">
+                <button type="button" class="slider-arrow" id="prevSlide" aria-label="முந்தைய தகவல்">←</button>
+                <div class="slider-dots" id="sliderDots">
+                    <button type="button" class="slider-dot active" data-slide="0" aria-label="தகவல் 1"></button>
+                    <button type="button" class="slider-dot" data-slide="1" aria-label="தகவல் 2"></button>
+                    <button type="button" class="slider-dot" data-slide="2" aria-label="தகவல் 3"></button>
+                </div>
+                <button type="button" class="slider-arrow" id="nextSlide" aria-label="அடுத்த தகவல்">→</button>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             PATCH 5 - CONTACT SECTION - GOOGLE SHEET இணைப்பு
+             BATCH 5.1: இந்த Form தான் Google Sheet-க்கு போகும்
+             BATCH 5.2: form-status ID - வெற்றி / தோல்வி செய்தியை காட்டும்
+             ===================================================== -->
+        <section class="contact-section" id="contact">
+            <div class="contact-wrapper">
+                <div class="contact-card">
+                    <div class="contact-icon-badge"><img src="assets/icons/Gmail.svg" alt="மின்னஞ்சல்"></div>
+                    <div class="contact-heading"><span>எங்களுடன் பேசுங்கள்</span><h2>தொடர்புக்கு</h2><p>உங்கள் சந்தேகம், ஆலோசனை அல்லது தகவலை எங்களுக்கு அனுப்பலாம்.</p></div>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group"><label for="contactName">உங்கள் பெயர்</label><input type="text" id="contactName" name="name" placeholder="உங்கள் பெயரை உள்ளிடுங்கள்" autocomplete="name" required></div>
+                        <div class="form-group"><label for="contactPhone">தொடர்பு எண்</label><input type="tel" id="contactPhone" name="phone" placeholder="உங்கள் மொபைல் எண்ணை உள்ளிடுங்கள்" inputmode="numeric" autocomplete="tel" required></div>
+                        <div class="form-group"><label for="contactMessage">உங்கள் செய்தி</label><textarea id="contactMessage" name="message" rows="4" placeholder="உங்கள் செய்தியை எழுதுங்கள்..." required></textarea></div>
+                        <button type="submit" class="contact-submit-btn"><span>செய்தியை அனுப்புங்கள்</span><b>→</b></button>
+                        <p class="form-status" id="formStatus"></p>
+                    </form>
+                    <div class="contact-mini-note"><span>💙</span><p>இணைப்புப் பாலம் மூலம் <strong>வேலை தேடுபவர் பதிவு இலவசம்.</strong></p></div>
+                </div>
+                <div class="contact-poster-side">
+                    <div class="poster-side-label"><span>🌉</span>இணைப்புப் பாலம்</div>
+                    <div class="contact-poster-frame">
+                        <img src="assets/images/inaippu-5.jpg" alt="இணைப்புப் பாலம் தகவல்" onerror="this.style.display='none'; document.getElementById('posterFallback').style.display='flex';">
+                        <div class="poster-fallback" id="posterFallback"><span>🌉</span><h3>இணைப்புப் பாலம்</h3><p>வேலை தேடுபவர்களையும் வேலை கொடுப்பவர்களையும் இணைக்கும் நம்பிக்கையான முயற்சி.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       
+    </main>
+
+   <footer class="site-footer">
+    <div class="footer-main">
+        <div class="footer-brand"><a href="#top" class="footer-logo-link"><img src="assets/logo/logo.png" alt="இணைப்புப் பாலம் லோகோ"></a><div><h3>இணைப்புப் பாலம்</h3><p>வேலை தேடுபவர்களுக்கும் வேலை கொடுப்பவர்களுக்கும் இடையிலான நம்பிக்கையான பாலம்.</p></div></div>
+        <div class="footer-social"><p>எங்களுடன் இணைந்திருங்கள்</p><div class="social-links">
+            <a href="https://www.facebook.com/profile.php?id=61593341843801" target="_blank" rel="noopener" class="social-link" aria-label="Facebook"><img src="assets/icons/Facebook.svg" alt="Facebook"></a>
+            <a href="https://www.instagram.com/inaippu.palam/?hl=en" target="_blank" rel="noopener" class="social-link" aria-label="Instagram"><img src="assets/icons/Instagram.svg" alt="Instagram"></a>
+            <a href="https://www.youtube.com/@inaippupalam" target="_blank" rel="noopener" class="social-link" aria-label="YouTube"><img src="assets/icons/YouTube.svg" alt="YouTube"></a>
+            <a href="https://wa.me/917373537070" target="_blank" rel="noopener" class="social-link" aria-label="WhatsApp"><img src="assets/icons/WhatsApp.svg" alt="WhatsApp"></a>
+        </div></div>
+    </div>
+    <div class="footer-bottom"><p>© <span id="currentYear">2026</span> இணைப்புப் பாலம். அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</p><a href="#" class="back-to-top" id="backToTop">மேலே செல்லுங்கள் ↑</a></div>
+</footer>
+
+    <!-- =====================================================
+         PATCH 8 - JAVASCRIPT இணைப்புகள் - முக்கியமான திருத்தம்
+         BATCH 8.1: config.js - Google Sheet URL இருக்கும் இடம். இது முதலில் வரணும்
+         BATCH 8.2: script.js - உங்கள் Website-ன் எல்லா செயல்பாடுகளும்
+         ===================================================== -->
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

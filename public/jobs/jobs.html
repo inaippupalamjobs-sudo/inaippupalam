@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>வேலைகள் | இணைப்புப்பாலம்</title>
+    <link rel="stylesheet" href="jobs.css">
+</head>
+<body>
+
+<!-- =========================================================
+     JOBS PAGE - FINAL CLEAN - NO CLASS MISMATCH
+     இணைப்புப்பாலம் — Public Jobs Listing
+     CSS: jobs.css (PATCH 07 தான் 4 Column Control)
+============================================================ -->
+
+<!-- =========================================================
+     PATCH 01 — START — NAVIGATION BAR
+     எதுக்கு: மேலே Navigation - எல்லா Page-க்கும் பொது
+     Control: site-header, navbar, nav-container, brand, nav-links
+     CSS Match: jobs.css PATCH 02 உடன் 100% Match
+============================================================ -->
+<header class="site-header">
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../../index.html" class="brand">
+        <img src="../../assets/logo/logo.png" alt="Logo" class="brand-logo">
+       
+
+    </a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../../index.html">முகப்பு</a></li>
+        <li><a href="../../job-seeker/job-seeker.html">வேலை வேண்டும் </a></li>
+        <li><a href="../../job-provider/job-provider.html">ஆட்கள் வேண்டும்</a></li>
+        <li><a href="../../public/jobs/jobs.html" class="active">வேலை கொடுப்பவர்கள்</a></li>
+        <li><a href="../../public/seekers/seekers.html">வேலை தேடுபவர்கள்</a></li>
+      </ul>
+
+    </div>
+  </nav>
+</header>
+<!-- PATCH 01 — END -->
+
+<main class="jobs-main">
+
+    <!-- =====================================================
+         PATCH 03 — START — SEARCH AREA
+         எதுக்கு: வேலை பெயர் / இடம் வைத்து தேட
+         Control: jobs-search-section, jobs-section-title, jobs-small-label
+    ===================================================== -->
+    <section class="jobs-search-section">
+        <div class="jobs-section-title">
+            <span class="jobs-small-label">வேலை வாய்ப்புகள்</span>
+            <h2>உங்களுக்கு பொருத்தமான வேலையை கண்டுபிடியுங்கள்</h2>
+        </div>
+
+        <div class="jobs-search-box">
+            <div class="jobs-input-group">
+                <label for="jobSearch">வேலை / நிறுவனம்</label>
+                <input type="search" id="jobSearch" placeholder="உதாரணம்: Sales, Office, Driver..." autocomplete="off">
+            </div>
+
+            <div class="jobs-input-group">
+                <label for="locationSearch">வேலை இடம்</label>
+                <input type="search" id="locationSearch" placeholder="உதாரணம்: Chennai, Madurai..." autocomplete="off">
+            </div>
+
+            <div class="jobs-input-group">
+                <label for="jobTypeFilter">வேலை வகை</label>
+                <select id="jobTypeFilter">
+                    <option value="all">அனைத்து வேலைகளும்</option>
+                    <option value="full-time">Full Time</option>
+                    <option value="part-time">Part Time</option>
+                    <option value="temporary">Temporary</option>
+                    <option value="contract">Contract</option>
+                </select>
+            </div>
+
+            <button type="button" class="jobs-search-button" id="jobsSearchButton">🔍 தேடுங்கள்</button>
+        </div>
+    </section>
+    <!-- PATCH 03 — END -->
+
+    <!-- =====================================================
+         PATCH 04 — START — JOB COUNT + SORT
+         எதுக்கு: எத்தனை வேலை கிடைத்தது என்று காட்ட
+         Control: jobs-toolbar, jobs-result-count, jobs-sort-box
+    ===================================================== -->
+    <section class="jobs-toolbar">
+        <div class="jobs-result-count">
+            <strong id="jobsResultCount">0</strong>
+            <span>வேலைகள் கிடைத்துள்ளன</span>
+        </div>
+
+        <div class="jobs-sort-box">
+            <label for="jobsSort">வரிசைப்படுத்து</label>
+            <select id="jobsSort">
+                <option value="latest">புதியவை முதலில்</option>
+                <option value="oldest">பழையவை முதலில்</option>
+                <option value="salary-high">சம்பளம் அதிகம்</option>
+                <option value="salary-low">சம்பளம் குறைவு</option>
+            </select>
+        </div>
+    </section>
+    <!-- PATCH 04 — END -->
+
+    <!-- =====================================================
+         PATCH 05 — START — JOB LIST — MAIN GRID
+         எதுக்கு: JS இங்க தான் Job Cards உருவாக்கும்
+         Control: jobs-list-section, jobs-grid, jobs-empty
+         CSS Match: jobs.css PATCH 07 (4 Column) இங்க தான் Apply ஆகும்
+    ===================================================== -->
+    <section class="jobs-list-section">
+        <div class="jobs-grid" id="jobsGrid"></div>
+
+        <!-- வேலை கிடைக்காதபோது -->
+        <div class="jobs-empty" id="jobsEmpty" hidden>
+            <div class="jobs-empty-icon">🔎</div>
+            <h3>வேலை கிடைக்கவில்லை</h3>
+            <p>வேறு வேலை பெயர் அல்லது இடத்தை முயற்சி செய்து பாருங்கள்.</p>
+            <button type="button" id="jobsClearButton" class="jobs-clear-button">தேடலை அழிக்கவும்</button>
+        </div>
+    </section>
+    <!-- PATCH 05 — END -->
+
+    <!-- =====================================================
+         PATCH 06 — START — PRIVACY NOTICE
+         எதுக்கு: Public Page Safety Message
+    ===================================================== -->
+    <section class="jobs-privacy-notice">
+        <div class="privacy-icon">🔒</div>
+        <div>
+            <h3>உங்கள் பாதுகாப்பு எங்களுக்கு முக்கியம்</h3>
+            <p>
+                வேலை வழங்குபவர்களின் தனிப்பட்ட தொலைபேசி எண், Email, முகவரி போன்ற
+                தகவல்கள் இந்த Public page-ல் காட்டப்படாது. தொடர்பு விவரங்கள் நிர்வாகப் பகுதியில் பாதுகாப்பாக பராமரிக்கப்படும்.
+            </p>
+        </div>
+    </section>
+    <!-- PATCH 06 — END -->
+
+</main>
+
+<!-- =========================================================
+     PATCH 07 — START — FOOTER
+     எதுக்கு: Footer - எல்லா Page-க்கும் பொது
+============================================================ -->
+<footer class="jobs-footer">
+    <div class="jobs-footer-inner">
+        <div class="jobs-footer-left">
+            <p>© 2026 இணைப்புப்பாலம் - அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை</p>
+        </div>
+        <div class="jobs-footer-socials">
+            <a href="https://www.facebook.com/profile.php?id=61593341843801" aria-label="Facebook"><img src="../../assets/icons/Facebook.svg" alt="Facebook"></a>
+            <a href="https://www.instagram.com/inaippu.palam/?hl=en" aria-label="Instagram"><img src="../../assets/icons/Instagram.svg" alt="Instagram"></a>
+            <a href="https://www.youtube.com/@inaippupalam" aria-label="YouTube"><img src="../../assets/icons/YouTube.svg" alt="YouTube"></a>
+            <a href="https://wa.me/917373537070" aria-label="WhatsApp"><img src="../../assets/icons/WhatsApp.svg" alt="WhatsApp"></a>
+        </div>
+    </div>
+</footer>
+<!-- PATCH 07 — END -->
+
+<script src="jobs.js"></script>
+</body>
+</html>

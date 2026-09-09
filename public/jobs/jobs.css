@@ -1,0 +1,386 @@
+/* ============================================================
+   JOBS.CSS - FINAL CLEAN - NO RED ERROR - DUPLICATE CLEARED
+   இணைப்புப்பாலம் — Public Jobs Page
+   Purple Theme - Clean Sheet - 4 Column Final
+   Date: 31-08-2026
+============================================================ */
+
+/* ============================================================
+   PATCH 01 — START — GLOBAL RESET
+   எதுக்கு: Browser Default-ஐ Reset பண்ண
+============================================================ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Noto Sans Tamil", "Latha", Arial, sans-serif;
+  background: #f7f8fc;
+  color: #202438;
+  line-height: 1.6;
+}
+button, input, select { font: inherit; }
+button { cursor: pointer; }
+a { text-decoration: none; color: inherit; }
+/* PATCH 01 — END */
+
+/* ============================================================
+   PATCH 02 — START — NAVIGATION BAR — UNIFORM
+   எதுக்கு: எல்லா Page-லயும் ஒரே Navbar
+============================================================ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.navbar { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #2a1a5a;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.brand-logo { 
+  width: 120px; 
+  height: 120px; 
+  object-fit: contain; }
+.nav-links { 
+
+  display: flex; 
+  list-style: none; 
+  gap: 20px; margin: 0; 
+  padding: 0; }
+.nav-links li a {
+
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+.nav-links li a.active, .nav-links li a:hover {
+  background: #f0ebff;
+  color: #7c5cff;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-toggle span { width: 25px; height: 3px; background: #333; border-radius: 2px; }
+/* PATCH 02 — END */
+
+/* ============================================================
+   PATCH 04 — START — MAIN AREA
+   எதுக்கு: Main Content Width Control
+============================================================ */
+.jobs-main { width: min(1180px, 92%); margin: auto; padding: 65px 0 80px; }
+.jobs-section-title { margin-bottom: 25px; }
+.jobs-small-label { color: #8b5cf6; font-size: 13px; font-weight: 800; letter-spacing: 1px; }
+.jobs-section-title h2 { margin-top: 5px; font-size: clamp(25px, 4vw, 36px); line-height: 1.3; }
+/* PATCH 04 — END */
+
+/* ============================================================
+   PATCH 05 — START — SEARCH BOX
+   எதுக்கு: Filter Search Box Design
+============================================================ */
+.jobs-search-box {
+  display: grid;
+  grid-template-columns: 1.5fr 1.2fr 1fr auto;
+  gap: 15px;
+  padding: 22px;
+  background: #ffffff;
+  border: 1px solid #e8e7ef;
+  border-radius: 22px;
+  box-shadow: 0 15px 45px rgba(30, 20, 60, 0.08);
+}
+.jobs-input-group { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 7px; }
+.jobs-input-group label, .jobs-sort-box label { 
+  font-size: 13px; 
+  font-weight: 800; 
+  color: #555a70; }
+
+.jobs-input-group input, .jobs-input-group select, .jobs-sort-box select {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 14px;
+  border: 1px solid #dddce7;
+  border-radius: 12px;
+  outline: none;
+  background: #fafaff;
+  color: #292d40;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.jobs-input-group input:focus, .jobs-input-group select:focus, .jobs-sort-box select:focus {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 4px rgba(139,92,246,0.10);
+}
+.jobs-search-button {
+  align-self: end;
+  min-height: 48px;
+  padding: 0 24px;
+  border: 0;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  color: #ffffff;
+  font-weight: 800;
+  box-shadow: 0 10px 25px rgba(124,58,237,0.24);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.jobs-search-button:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(124,58,237,0.32); }
+/* PATCH 05 — END */
+
+/* ============================================================
+   PATCH 06 — START — TOOLBAR
+   எதுக்கு: Result Count + Sort Box
+============================================================ */
+.jobs-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin: 38px 0 20px; }
+.jobs-result-count { display: flex; align-items: baseline; gap: 7px; color: #656a7c; }
+.jobs-result-count strong { color: #7c3aed; font-size: 25px; }
+.jobs-sort-box { display: flex; align-items: center; gap: 10px; }
+.jobs-sort-box select { min-width: 170px; }
+/* PATCH 06 — END */
+
+/* ============================================================
+   PATCH 07 — START — JOB CARDS — FINAL — 4 COLUMN — COMPACT — 10K ID
+   எதுக்கு: இது தான் Main - 3 Column-ல இருந்து 4 Column ஆக்குற Batch
+   Control: Width, Height, Gap, Card Padding - TV-ல 4 Box வர இது தான் காரணம்
+   Duplicate Clear: இந்த Batch-ல மட்டும் தான் jobs-grid இருக்கணும்
+============================================================ */
+.jobs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+.job-card {
+  position: relative;
+  padding: 18px;
+  background: #ffffff;
+  border: 1px solid #e8e7ef;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(25, 20, 50, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.job-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #7c3aed, #ec4899);
+}
+.job-card:hover {
+  transform: translateY(-5px);
+  border-color: #d8c8ff;
+  box-shadow: 0 15px 35px rgba(50, 30, 90, 0.12);
+}
+.job-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.job-company-icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #f3e8ff, #fae8ff);
+  color: #7c3aed;
+  font-size: 18px;
+  font-weight: 900;
+}
+.job-type-badge {
+  padding: 4px 8px;
+  border-radius: 50px;
+  background: #f3f0ff;
+  color: #7040d6;
+  font-size: 10px;
+  font-weight: 800;
+}
+.job-card h3 {
+  margin-bottom: 4px;
+  font-size: 16px;
+  line-height: 1.3;
+  color: #25283a;
+}
+.job-company { color: #777b8d; font-size: 13px; }
+.job-details {
+  display: grid;
+  gap: 7px;
+  margin: 12px 0;
+  padding: 10px 0;
+  border-top: 1px solid #eeeeF3;
+  border-bottom: 1px solid #eeeeF3;
+}
+.job-detail {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #5f6475;
+  font-size: 13px;
+}
+.job-detail-icon {
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  background: #f6f3ff;
+  color: #7c3aed;
+  font-size: 11px;
+}
+.job-salary { color: #15803d; font-weight: 800; }
+.job-description {
+  color: #6b7082;
+  font-size: 13px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+.job-card-bottom {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.job-posted-date { color: #999dac; font-size: 11px; }
+.job-view-button {
+  border: 0;
+  padding: 7px 12px;
+  border-radius: 8px;
+  background: #f1edff;
+  color: #6d28d9;
+  font-weight: 800;
+  font-size: 12px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.job-view-button:hover { background: #7c3aed; color: #ffffff; }
+
+/* Responsive Control - இது தான் 4 -> 3 -> 2 -> 1 ஆக மாற்றும் */
+@media (max-width: 1200px) {
+  .jobs-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 768px) {
+  .jobs-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 480px) {
+  .jobs-grid { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+}
+/* PATCH 07 — END */
+
+/* ============================================================
+   PATCH 08 — START — EMPTY STATE
+   எதுக்கு: Job இல்லாதபோது காட்டும் Message
+============================================================ */
+.jobs-empty { text-align: center; padding: 70px 20px; background: #ffffff; border: 1px dashed #d8d6e3; border-radius: 22px; }
+.jobs-empty-icon { font-size: 42px; margin-bottom: 10px; }
+.jobs-empty h3 { margin-bottom: 5px; font-size: 23px; }
+.jobs-empty p { color: #777b8b; margin-bottom: 20px; }
+.jobs-clear-button { border: 0; padding: 10px 18px; border-radius: 10px; background: #7c3aed; color: #ffffff; font-weight: 800; }
+/* PATCH 08 — END */
+
+/* ============================================================
+   PATCH 09 — START — PRIVACY NOTICE
+============================================================ */
+.jobs-privacy-notice { display: flex; align-items: flex-start; gap: 18px; margin-top: 40px; padding: 22px; border-radius: 18px; background: linear-gradient(135deg, #f5f3ff, #fff7fd); border: 1px solid #e7defe; }
+.privacy-icon { width: 48px; height: 48px; display: grid; place-items: center; flex-shrink: 0; border-radius: 14px; background: #ffffff; font-size: 21px; }
+.jobs-privacy-notice h3 { margin-bottom: 4px; font-size: 17px; }
+.jobs-privacy-notice p { color: #6c7080; font-size: 13px; }
+/* PATCH 09 — END */
+
+/* ============================================================
+   PATCH 10 — START — FOOTER
+============================================================ */
+.jobs-footer { background: #171321; color: #ffffff; }
+.jobs-footer-inner { width: min(1180px, 92%); min-height: 100px; margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.jobs-footer-left p { color: rgba(255,255,255,0.65); font-size: 13px; }
+.jobs-footer-socials { display: flex; gap: 10px; }
+.jobs-footer-socials a { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 10px; background: rgba(255,255,255,0.08); transition: transform 0.2s ease, background 0.2s ease; }
+.jobs-footer-socials a:hover { transform: translateY(-3px); background: rgba(255,255,255,0.16); }
+.jobs-footer-socials img { width: 20px; height: 20px; }
+/* PATCH 10 — END */
+
+/* ============================================================
+   PATCH 11 — START — RESPONSIVE TABLET — DUPLICATE CLEARED
+   எதுக்கு: Tablet-ல Search Box மட்டும் Control பண்ணும்
+   Fix: இங்க jobs-grid Duplicate இருந்தது, அதை நீக்கியாச்சு
+============================================================ */
+@media (max-width: 950px) {
+  .jobs-search-box { grid-template-columns: 1fr 1fr; }
+  .jobs-search-button { width: 100%; }
+}
+/* PATCH 11 — END */
+
+/* ============================================================
+   PATCH 12 — START — RESPONSIVE MOBILE — FINAL FIXED — DUPLICATE CLEARED
+   எதுக்கு: Mobile Menu + Search + Footer Control
+   Fix: இங்க jobs-grid Duplicate இருந்தது, அதை நீக்கியாச்சு - PATCH 07 தான் Main
+============================================================ */
+@media (max-width: 700px) {
+  .menu-toggle { display: flex; }
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    left: 4%;
+    width: 92%;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 12px;
+    border-radius: 18px;
+    background: #ffffff;
+    box-shadow: 0 20px 50px rgba(20,20,40,0.15);
+  }
+  .nav-links.open, .nav-links.active, .nav-links.show { display: flex; }
+  .nav-links li a { width: 100%; text-align: center; }
+  .jobs-main { padding-top: 45px; }
+  .jobs-search-box { grid-template-columns: 1fr; padding: 18px; }
+  .jobs-toolbar { align-items: flex-start; flex-direction: column; }
+  .jobs-sort-box { width: 100%; justify-content: space-between; }
+  .jobs-sort-box select { flex: 1; }
+  .jobs-privacy-notice { flex-direction: column; }
+  .jobs-footer-inner { flex-direction: column; justify-content: center; padding: 25px 0; text-align: center; }
+}
+/* PATCH 12 — END */
+
+/* ============================================================
+   PATCH 13 — START — SMALL MOBILE
+   எதுக்கு: 420px கீழ Small Phone Control
+============================================================ */
+@media (max-width: 420px) {
+  .job-card { padding: 20px; }
+  .job-card-bottom { align-items: flex-start; flex-direction: column; }
+  .job-view-button { width: 100%; }
+}
+/* PATCH 13 — END */

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>வேலைக்கு ஆட்கள் தேவை | இணைப்புப்பாலம்</title>
+    <link rel="icon" type="image/png" href="../assets/logo/logo.png">
+    <link rel="stylesheet" href="job-provider.css">
+    <!-- 
+      விளக்கம்:
+      - charset UTF-8 - தமிழ் எழுத்துக்காக
+      - viewport - மொபைல் Responsive
+      - CSS: job-provider.css link
+    -->
+</head>
+<body>
+
+<!-- 
+  ==========================================================
+  1. NAVIGATION BAR - START - CLEAN SIMPLE
+  ==========================================================
+  - site-header: மேலே ஒட்டி இருக்கும் Sticky Header
+  - brand: Logo - Click பண்ணா முகப்புக்கு போகும்
+  - menuToggle: மொபைலில் மட்டும் தெரியும் 3 கோடு பட்டன்
+  - navLinks: 5 முக்கிய பக்கம்
+     * முகப்பு - index.html
+     * வேலை வேண்டும் - Job Seeker Form
+     * ஆட்கள் வேண்டும் - இந்த பக்கம் (active)
+     * வேலை கொடுப்பவர்கள் - Public List
+     * வேலை தேடுபவர்கள் - Public List
+  JS-ல் menuToggle Click -> navLinks is-open Toggle ஆகும்
+-->
+<header class="site-header">
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="brand"><img src="../assets/logo/logo.png" alt="Logo" class="brand-logo"></a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Menu"><span></span><span></span><span></span></button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../index.html">முகப்பு</a></li>
+        <li><a href="../job-seeker/job-seeker.html">வேலை வேண்டும்</a></li>
+        <li><a href="./job-provider.html" class="active">ஆட்கள் வேண்டும்</a></li>
+        <li><a href="../public/jobs/jobs.html">வேலை கொடுப்பவர்கள்</a></li>
+        <li><a href="../public/seekers/seekers.html">வேலை தேடுபவர்கள்</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<!-- NAVIGATION END -->
+
+<section class="form-section">
+    <div class="section-heading">
+        <span class="section-tag">JOB PROVIDER REGISTRATION</span>
+        <h2>வேலைக்கு ஆட்கள் தேவையா? பதிவு செய்யுங்கள்</h2>
+        <p>உங்கள் நிறுவனம் மற்றும் வேலை விவரங்களை தெளிவாக நிரப்புங்கள். * கட்டாயம்.</p>
+    </div>
+
+    <form id="providerRegistrationForm" novalidate>
+
+        <!-- 
+          2. BASIC INFO - அடிப்படை தகவல்
+          - providerName* , providerPhone* கட்டாயம்
+          - businessName, email விருப்பம்
+        -->
+        <div class="form-card">
+            <div class="card-title"><div class="title-icon">🏢</div><div><h3>அடிப்படை தகவல்</h3><p>உங்களை / உங்கள் நிறுவனத்தைப் பற்றிய தகவல்</p></div></div>
+            <div class="form-grid">
+                <div class="form-group"><label for="providerName">உங்கள் பெயர் <span>*</span></label><input type="text" id="providerName" name="providerName" placeholder="உங்கள் பெயர்" required></div>
+                <div class="form-group"><label for="businessName">நிறுவனம் / கடை பெயர்</label><input type="text" id="businessName" name="businessName" placeholder="Ex: Kumar Textiles"></div>
+                <div class="form-group"><label for="providerPhone">தொடர்பு எண் <span>*</span></label><input type="tel" id="providerPhone" name="providerPhone" placeholder="10 இலக்க மொபைல் எண்" inputmode="numeric" maxlength="10" required></div>
+                <div class="form-group"><label for="providerEmail">மின்னஞ்சல்</label><input type="email" id="providerEmail" name="providerEmail" placeholder="company@gmail.com"></div>
+            </div>
+        </div>
+
+        <!-- 
+          3. JOB INFO - வேலை பற்றிய தகவல்
+          - jobTitle*, jobCategory*, vacancies*, gender*, workingHours* கட்டாயம்
+        -->
+        <div class="form-card">
+            <div class="card-title"><div class="title-icon">💼</div><div><h3>வேலை பற்றிய தகவல்</h3><p>எப்படிப்பட்ட பணியாளர் உங்களுக்கு தேவை?</p></div></div>
+            <div class="form-grid">
+                <div class="form-group"><label for="jobTitle">வேலை பெயர் <span>*</span></label><input type="text" id="jobTitle" name="jobTitle" placeholder="Ex: Sales Girl / Tailor" required></div>
+                <div class="form-group">
+                    <label for="jobCategory">வேலை வகை <span>*</span></label>
+                    <select id="jobCategory" name="jobCategory" required>
+                        <option value="">தேர்வு செய்க</option>
+                        <option value="shop">கடை வேலை</option>
+                        <option value="office">அலுவலக வேலை</option>
+                        <option value="sales">விற்பனை</option>
+                        <option value="tailor">தையல்</option>
+                        <option value="driver">டிரைவர்</option>
+                        <option value="factory">தொழிற்சாலை</option>
+                        <option value="hotel">ஹோட்டல்</option>
+                        <option value="other">மற்றவை</option>
+                    </select>
+                </div>
+                <div class="form-group"><label for="vacancies">தேவைப்படும் நபர்கள் <span>*</span></label><input type="number" id="vacancies" name="vacancies" min="1" placeholder="Ex: 5" required></div>
+                <div class="form-group">
+                    <label for="experience">அனுபவம்</label>
+                    <select id="experience" name="experience">
+                        <option value="">தேர்வு</option>
+                        <option value="no-experience">அனுபவம் தேவையில்லை</option>
+                        <option value="0-1">0-1 வருடம்</option>
+                        <option value="1-3">1-3 வருடம்</option>
+                        <option value="3-5">3-5 வருடம்</option>
+                        <option value="5-plus">5+ வருடம்</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="gender">பாலினம் <span>*</span></label>
+                    <select id="gender" name="gender" required>
+                        <option value="">தேர்வு</option>
+                        <option value="male">ஆண்</option>
+                        <option value="female">பெண்</option>
+                        <option value="any">ஆண் / பெண் இருவரும்</option>
+                    </select>
+                </div>
+                <div class="form-group"><label for="ageRange">வயது வரம்பு</label><input type="text" id="ageRange" name="ageRange" placeholder="Ex: 18-35"></div>
+                <div class="form-group">
+                    <label for="education">கல்வித்தகுதி</label>
+                    <select id="education" name="education">
+                        <option value="">தேர்வு</option>
+                        <option value="none">தேவையில்லை</option>
+                        <option value="10th">10th</option>
+                        <option value="12th">12th</option>
+                        <option value="degree">Degree</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="workingHours">வேலை நேரம் <span>*</span></label>
+                    <select id="workingHours" name="workingHours" required>
+                        <option value="">தேர்வு</option>
+                        <option value="full-time">முழு நேரம்</option>
+                        <option value="part-time">பகுதி நேரம்</option>
+                        <option value="day-shift">பகல் நேரம்</option>
+                        <option value="night-shift">இரவு நேரம்</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- 
+          4. VEHICLE & JOINING - வாகனம் & சேரும் தேதி
+        -->
+        <div class="form-card">
+            <div class="card-title"><div class="title-icon">🛵</div><div><h3>வாகன விவரங்கள்</h3><p>வேலைக்கு வாகனம் தேவையா?</p></div></div>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="vehicleRequired">வாகனம் தேவையா? <span>*</span></label>
+                    <select id="vehicleRequired" name="vehicleRequired" required>
+                        <option value="">தேர்வு</option>
+                        <option value="no">தேவையில்லை</option>
+                        <option value="bike">Bike வேண்டும்</option>
+                        <option value="car">Car வேண்டும்</option>
+                        <option value="company">நிறுவன வாகனம் உண்டு</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="joiningDate">எப்போது தேவை? <span>*</span></label>
+                    <select id="joiningDate" name="joiningDate" required>
+                        <option value="">தேர்வு</option>
+                        <option value="immediately">உடனடியாக</option>
+                        <option value="within-7-days">7 நாட்களுக்குள்</option>
+                        <option value="within-15-days">15 நாட்களுக்குள்</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- 
+          5. SALARY & SKILLS
+        -->
+        <div class="form-card">
+            <div class="card-title"><div class="title-icon">💰</div><div><h3>சம்பளம் மற்றும் திறமை</h3><p>வேலைக்கு தேவையான ஊதியம் மற்றும் திறன்கள்</p></div></div>
+            <div class="form-grid">
+                <div class="form-group"><label for="salaryMin">குறைந்தபட்ச சம்பளம்</label><input type="number" id="salaryMin" name="salaryMin" placeholder="Ex: 15000"></div>
+                <div class="form-group"><label for="salaryMax">அதிகபட்ச சம்பளம்</label><input type="number" id="salaryMax" name="salaryMax" placeholder="Ex: 25000"></div>
+                <div class="form-group full-width"><label for="requiredSkills">தேவையான திறமைகள்</label><textarea id="requiredSkills" name="requiredSkills" rows="3" placeholder="Ex: Computer தெரிய வேண்டும், தமிழ் பேச தெரிய வேண்டும்..."></textarea></div>
+            </div>
+        </div>
+
+        <!-- 
+          ==========================================================
+          6. PHOTO & SUBMIT - NEW CLEAN VERSION - GALLERY + CAMERA + COMPRESS
+          ==========================================================
+          - photo-preview: வட்ட வடிவ Preview
+          - photo-action-group: 2 பட்டன் - கேலரி + செல்பி
+          - profilePhoto: Gallery File Input (hidden)
+          - selfieCameraWrap: 
+             * selfieVideo - Live Camera
+             * selfieCanvas - Capture க்கு
+             * Controls - படம் எடு, மீண்டும், பயன்படுத்து, மூடு
+          - photoStatusText: Compress Status காட்ட ~120KB
+          - Admin Note: Admin Approval-க்கு பிறகு Public-ல் தெரியும் - நீங்க கேட்டது
+          Logic: JS-ல் compressImageToKB() - 800px resize + JPEG 0.7 -> ~120KB -> Google Sheet/Drive-க்கு அனுப்பும்
+          இதனால் Drive இடம் மிச்சம், Customer-க்கு வேகமா லோட் ஆகும்
+        -->
+        <div class="form-card photo-submit-card">
+            <div class="card-title"><div class="title-icon">📸</div><div><h3>புகைப்படம் & பதிவு <span>*</span></h3><p>நிறுவன லோகோ / கடை படம் - தெளிவா இருக்கணும்</p></div></div>
+            <div class="photo-submit-grid">
+                <div class="photo-side">
+                    <div class="photo-preview" id="photoPreview"><span id="photoPlaceholder">🏢</span><img id="previewImage" src="" alt="Preview"></div>
+                    
+                    <div class="photo-action-group">
+                        <label for="providerImage" class="upload-button">📁 கேலரியில் இருந்து</label>
+                        <button type="button" id="selfieButton" class="upload-button selfie-button">🤳 கேமரா / செல்பி</button>
+                    </div>
+                    <input type="file" id="providerImage" name="providerImage" accept="image/*" hidden>
+
+                    <!-- Selfie Camera Wrap - Seekers மாதிரி Same UI -->
+                    <div id="selfieCameraWrap" class="selfie-camera-wrap" style="display:none;">
+                        <video id="selfieVideo" autoplay playsinline muted></video>
+                        <canvas id="selfieCanvas" style="display:none;"></canvas>
+                        <div class="selfie-controls">
+                            <button type="button" id="capturePhotoBtn" class="capture-btn">📸 படம் எடு</button>
+                            <button type="button" id="retakePhotoBtn" class="retake-btn" style="display:none;">🔄 மீண்டும்</button>
+                            <button type="button" id="usePhotoBtn" class="use-btn" style="display:none;">✅ இதை பயன்படுத்து</button>
+                            <button type="button" id="closeCameraBtn" class="close-btn">❌ மூடு</button>
+                        </div>
+                        <p class="selfie-hint">கடை / லோகோ தெளிவா தெரியிற மாதிரி எடுங்க</p>
+                    </div>
+
+                    <p class="photo-hint" id="photoStatusText">Max 2MB - Auto Compress ஆகி ~120KB-ல் Drive-ல் Save ஆகும்</p>
+                    <p class="privacy-note">🔒 தொலைபேசி எண் பொதுவில் காட்டப்படாது - நிர்வாகத்திற்கு மட்டும்</p>
+                    <button type="submit" class="submit-button" id="submitButton"><span>வேலைவாய்ப்பை பதிவு செய்</span><strong>→</strong></button>
+                    <p class="admin-note">✅ Admin Approval-க்கு பிறகு Public-ல் தெரியும் - Google Sheet-ல் Review பண்ணப்படும்</p>
+                </div>
+                <div class="submit-side">
+                    <div class="team-image-box">
+                        <img src="../assets/images/team.webp" alt="Inaippu Palam Team">
+                        <div class="team-dialog">✨ இணைப்புப்பாலம் மூலம் சிறந்த ஊழியர்களை பெறுங்கள்! ✨<br><small>உங்கள் ஊரிலேயே நம்பிக்கையான ஆட்கள்</small></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</section>
+
+<!-- Success Overlay -->
+<div class="success-overlay" id="successOverlay" style="display:none;"><div class="success-box"><div class="success-icon">✓</div><h2>பதிவு வெற்றி!</h2><p style="font-size:13px;color:#666;margin-top:8px;">Admin Approval-க்கு பிறகு பொதுவில் காட்டப்படும்</p><button type="button" id="successClose" class="success-close">சரி</button></div></div>
+
+<footer class="jobs-footer">
+    <div class="jobs-footer-inner">
+        <div class="jobs-footer-left"><p>© 2026 இணைப்புப்பாலம் - அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை</p></div>
+        <div class="jobs-footer-socials">
+            <a href="https://www.facebook.com/profile.php?id=61593341843801"><img src="../assets/icons/Facebook.svg" alt="FB"></a>
+            <a href="https://www.instagram.com/inaippu.palam/?hl=en"><img src="../assets/icons/Instagram.svg" alt="IG"></a>
+            <a href="https://www.youtube.com/@inaippupalam"><img src="../assets/icons/YouTube.svg" alt="YT"></a>
+            <a href="https://wa.me/917373537070"><img src="../assets/icons/WhatsApp.svg" alt="WA"></a>
+        </div>
+    </div>
+</footer>
+
+<script src="../config.js"></script>
+<script src="job-provider.js"></script>
+</body>
+</html>

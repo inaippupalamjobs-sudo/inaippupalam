@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>வேலை தேடுபவர் | இணைப்புப்பாலம்</title>
+    <link rel="icon" type="image/png" href="../assets/logo/logo.png">
+    <link rel="stylesheet" href="job-seeker.css">
+    <!-- 
+      விளக்கம்:
+      - lang="ta" - தமிழ் மொழிக்காக
+      - viewport - மொபைலில் சரியாக தெரிய
+      - job-seeker.css - உங்க CSS file link
+    -->
+</head>
+<body>
+
+<!-- 
+  ==========================================================
+  1. NAVIGATION BAR - START - CLEAN SIMPLE VERSION
+  ==========================================================
+  - site-header: மேலே ஒட்டிக்கிட்டு இருக்கும் (sticky)
+  - brand: Logo + பெயர்
+  - menuToggle: மொபைலில் 3 கோடு பட்டன்
+  - navLinks: 5 மெனு - முகப்பு, வேலை வேண்டும், ஆட்கள் வேண்டும் etc
+  - active class: இப்போ இருக்கிற பக்கம் எதுன்னு காட்ட
+-->
+<header class="site-header">
+  <nav class="navbar">
+    <div class="nav-container">
+      <!-- Logo -->
+      <a href="../index.html" class="brand">
+        <img src="../assets/logo/logo.png" alt="Logo" class="brand-logo">
+      </a>
+      <!-- Mobile 3 Dot Button -->
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <!-- Menu Links -->
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../index.html">முகப்பு</a></li>
+        <li><a href="../job-seeker/job-seeker.html" class="active">வேலை வேண்டும்</a></li>
+        <li><a href="../job-provider/job-provider.html">ஆட்கள் வேண்டும்</a></li>
+        <li><a href="../public/jobs/jobs.html">வேலை கொடுப்பவர்கள்</a></li>
+        <li><a href="../public/seekers/seekers.html">வேலை தேடுபவர்கள்</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<!-- NAVIGATION BAR - END -->
+
+<!-- 
+  ==========================================================
+  2. FORM SECTION - MAIN
+  ==========================================================
+-->
+<section class="form-section">
+    <div class="section-heading">
+        <span class="section-tag">JOB SEEKER REGISTRATION</span>
+        <h2>உங்கள் விவரங்களை பதிவு செய்யுங்கள்</h2>
+        <p>கீழே கேட்கப்பட்டுள்ள விவரங்களை சரியாக நிரப்புங்கள். * உள்ளவை கட்டாயம்.</p>
+    </div>
+
+    <form id="seekerForm">
+
+        <!-- 
+          BATCH 06: தனிப்பட்ட விவரங்கள்
+          - fullName, age, gender கட்டாயம் (*)
+          - education (கல்வித்தகுதி) - இப்போ கட்டாயம் ஆக்கப்பட்டது *
+          - 10th, 12th, Degree, மற்றவை options
+        -->
+        <div class="form-card">
+            <div class="card-title"><div class="title-icon">👤</div><div><h3>தனிப்பட்ட விவரங்கள்</h3><p>உங்களைப் பற்றிய அடிப்படை தகவல்கள்</p></div></div>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="fullName">முழுப் பெயர் <span>*</span></label>
+                    <input type="text" id="fullName" name="fullName" placeholder="உங்கள் பெயர்" required>
+                </div>
+                <div class="form-group">
+                    <label for="age">வயது <span>*</span></label>
+                    <input type="number" id="age" name="age" min="18" max="80" placeholder="Ex: 25" required>
+                </div>
+                <div class="form-group">
+                    <label for="gender">பாலினம் <span>*</span></label>
+                    <select id="gender" name="gender" required><option value="">தேர்வு செய்க</option><option value="male">ஆண்</option><option value="female">பெண்</option><option value="other">மற்றவை</option></select>
+                </div>
+                <div class="form-group">
+                    <label for="maritalStatus">திருமண நிலை</label>
+                    <select id="maritalStatus" name="maritalStatus"><option value="">தேர்வு செய்க</option><option value="unmarried">ஆகாதவர்</option><option value="married">ஆனவர்</option></select>
+                </div>
+                <div class="form-group">
+                    <label for="education">கல்வித் தகுதி <span>*</span></label>
+                    <select id="education" name="education" required>
+                        <option value="">தேர்வு செய்க</option>
+                        <option value="No education">படிப்பு இல்லை</option>
+                        <option value="sslc">10th</option>
+                        <option value="hsc">12th</option>
+                        <option value="degree">Degree</option>
+                        <option value="other">மற்றவை</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="course">படிப்பு / Course</label>
+                    <input type="text" id="course" name="course" placeholder="Ex: B.Com, Tailoring">
+                </div>
+            </div>
+        </div>
+
+        <!-- 
+          BATCH 07: வேலை மற்றும் திறமைகள்
+          - jobType கட்டாயம் *
+          - experience (அனுபவம்) - இப்போ கட்டாயம் *
+          - jobVariety - Auto/Car Driver, Tailor மாதிரி விவரம் எழுத
+        -->
+        <div class="form-card">
+            <div class="card-title"><div class="title-icon">💼</div><div><h3>வேலை மற்றும் திறமைகள்</h3><p>உங்களுக்கு ஏற்ற வேலை</p></div></div>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="jobType">விரும்பும் வேலை <span>*</span></label>
+                    <select id="jobType" name="jobType" required>
+                        <option value="">தேர்வு செய்க</option>
+                        <option value="shop">கடை வேலை</option>
+                        <option value="office">அலுவலக வேலை</option>
+                        <option value="marketing">மார்க்கெட்டிங்</option>
+                        <option value="sales">Sales / விற்பனை</option>
+                        <option value="tailor">தையல் வேலை</option>
+                        <option value="teacher">ஆசிரியர்</option>
+                        <option value="driver">டிரைவர்</option>
+                        <option value="cook">சமையல்</option>
+                        <option value="Watchman">வாட்ச்மேன்</option>
+                        <option value="other">மற்றவை</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="jobVariety">வேலை வகை</label>
+                    <input type="text" id="jobVariety" name="jobVariety" placeholder="உதா: Auto/Car/Lorry Driver, Singer Tailor">
+                </div>
+                <div class="form-group">
+                    <label for="experience">அனுபவம் <span>*</span></label>
+                    <select id="experience" name="experience" required>
+                        <option value="">தேர்வு செய்க</option>
+                        <option value="no-experience">அனுபவம் இல்லை</option>
+                        <option value="1-year">1 வருடம்</option>
+                        <option value="2-years">2 வருடம்</option>
+                        <option value="3-years">3 வருடம்</option>
+                        <option value="4-years">4 வருடம்</option>
+                        <option value="5-years">5 வருடம் மற்றும் அதற்கு மேல்</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="workType">வேலை நேரம்</label>
+                    <select id="workType" name="workType">
+                        <option value="">தேர்வு</option>
+                        <option value="full-time">Full Time - முழு நேரம்</option>
+                        <option value="part-time">Part Time - பகுதி நேரம்</option>
+                        <option value="Night-time">Night duty - இரவுப் பணி</option>
+                        <option value="temporarily">Temporarily - தற்காலிகமாக</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="expectedSalary">எதிர்பார்க்கும் சம்பளம்</label>
+                    <input type="text" id="expectedSalary" name="expectedSalary" inputmode="numeric" placeholder="15000">
+                </div>
+                <div class="form-group">
+                    <label for="joiningAvailability">எப்போது வர முடியும்?</label>
+                    <select id="joiningAvailability" name="joiningAvailability">
+                        <option value="">தேர்வு செய்க</option>
+                        <option value="immediately">உடனடி</option>
+                        <option value="within-week">ஒரு வாரத்தில்</option>
+                        <option value="within-15-days">15 நாட்களில்</option>
+                        <option value="within-month">ஒரு மாதத்தில்</option>
+                        <option value="Depending on the job">வேலையைப் பொறுத்து</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 
+          BATCH 08: இருப்பிடம் & தொடர்பு
+          - district, phone கட்டாயம் *
+          - phoneType (போன் வகை) - இப்போ கட்டாயம் * - Smartphone, Button Phone, No Phone
+        -->
+        <div class="form-card">
+            <div class="card-title"><div class="title-icon">📍</div><div><h3>இருப்பிடம் & தொடர்பு</h3><p>தகவல்களுக்கு</p></div></div>
+            <div class="form-grid">
+                <div class="form-group"><label for="district">மாவட்டம் <span>*</span></label><input type="text" id="district" name="district" placeholder="Tiruppur" required></div>
+                <div class="form-group"><label for="city">நகரம் / ஊர் / தெரு / வீட்டு எண் </label><input type="text" id="city" name="city" placeholder="palladam / Vavipalayam / Street"></div>
+                <div class="form-group"><label for="phone">தொடர்பு எண் <span>*</span></label><input type="tel" id="phone" name="phone" maxlength="10" inputmode="numeric" placeholder="10 இலக்க எண்" required></div>
+                <div class="form-group">
+                    <label for="phoneType">போன் வகை <span>*</span></label>
+                    <select id="phoneType" name="phoneType" required>
+                        <option value="">தேர்வு செய்க</option>
+                        <option value="smartphone">ஸ்மார்ட்போன்</option>
+                        <option value="button-phone">பட்டன் போன்</option>
+                        <option value="no-phone">போன் இல்லை</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- 
+          BATCH 09: வாகன விவரங்கள்
+          - hasVehicle (வாகனம் உள்ளதா) - இப்போ கட்டாயம் *
+        -->
+        <div class="form-card">
+            <div class="card-title"><div class="title-icon">🛵</div><div><h3>வாகன விவரங்கள்</h3></div></div>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="hasVehicle">வாகனம் உள்ளதா? <span>*</span></label>
+                    <select id="hasVehicle" name="hasVehicle" required>
+                        <option value="">தேர்வு செய்க</option>
+                        <option value="no">இல்லை</option>
+                        <option value="yes">ஆம்</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="vehicleType">வாகன வகை</label>
+                    <select id="vehicleType" name="vehicleType">
+                        <option value="">தேர்வு செய்க</option>
+                        <option value="cycle">சைக்கிள்</option>
+                        <option value="two-wheeler">டூ வீலர் / பைக்</option>
+                        <option value="three-wheeler">த்ரீ வீலர் / ஆட்டோ</option>
+                        <option value="four-wheeler">ஃபோர் வீலர் / கார்</option>
+                        <option value="no-vehicle">வாகனம் இல்லை</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- 
+          ==========================================================
+          BATCH 10: புகைப்படம் & பதிவு - NEW FEATURES
+          ==========================================================
+          1. 📁 கேலரியில் இருந்து - மொபைல்/சிஸ்டம் Gallery
+          2. 🤳 செல்பி எடு - நேரடி கேமரா
+             - selfieVideo: Live Camera
+             - selfieCanvas: படம் பிடிக்க
+             - capturePhotoBtn, usePhotoBtn etc
+          3. Auto Compress to ~120KB - Drive இடம் மிச்சம், வேகமா லோட்
+          4. photoStatusText - Compress ஆனதை காட்ட
+        -->
+        <div class="form-card photo-submit-card">
+            <div class="card-title">
+                <div class="title-icon">📸</div>
+                <div><h3>புகைப்படம் & பதிவு <span>*</span></h3><p>தெளிவான முக புகைப்படம் - கட்டாயம்</p></div>
+            </div>
+            <div class="photo-submit-grid">
+                <div class="photo-side">
+                    <div class="photo-preview" id="photoPreview">
+                        <span id="photoPlaceholder">👤</span>
+                        <img id="previewImage" src="" alt="Preview">
+                    </div>
+                    <!-- 2 Button: Gallery + Selfie -->
+                    <div class="photo-action-group">
+                        <label for="profilePhoto" class="upload-button">📁 கேலரியில் இருந்து</label>
+                        <button type="button" id="selfieButton" class="upload-button selfie-button">🤳 செல்பி எடு</button>
+                    </div>
+                    <input type="file" id="profilePhoto" name="profilePhoto" accept="image/*" hidden>
+
+                    <!-- Selfie Camera Area - ஆரம்பத்தில் மறைவா இருக்கும் -->
+
+                    <div id="selfieCameraWrap" class="selfie-camera-wrap" style="display:none;">
+                        <video id="selfieVideo" autoplay playsinline muted></video>
+                        <canvas id="selfieCanvas" style="display:none;"></canvas>
+                        <div class="selfie-controls">
+                            <button type="button" id="capturePhotoBtn" class="capture-btn">📸 படம் எடு</button>
+                            <button type="button" id="retakePhotoBtn" class="retake-btn" style="display:none;">🔄 மீண்டும்</button>
+                            <button type="button" id="usePhotoBtn" class="use-btn" style="display:none;">✅ இதை பயன்படுத்து</button>
+                            <button type="button" id="closeCameraBtn" class="close-btn">❌ மூடு</button>
+                        </div>
+                        <p class="selfie-hint">முகம் நேரா தெரியிற மாதிரி வச்சு எடுங்க</p>
+                    </div>
+
+                    <p class="photo-hint" id="photoStatusText">Max 2MB - தெளிவான Photo </p>
+
+                    <label class="check-row big-check">
+                        <input type="checkbox" id="allowPublicPhoto" name="allowPublicPhoto" value="yes">
+                        <span><strong>இதை டிக் செய்தால்</strong> புகைப்படம் பொதுவெளியில் காட்டப்படும்.<br><small>இல்லனா அவதார் காட்டப்படும்</small></span>
+                    </label>
+                    <p class="privacy-note new-privacy">🔒 தொலைபேசி எண், முகவரி பொதுவில் காட்டப்படாது - நிர்வாகத்திற்கு மட்டும்</p>
+                    <button type="submit" class="submit-button" id="submitButton"><span>பதிவு செய்யவும்</span><strong>→</strong></button>
+                    <p class="admin-note">Admin Approval-க்கு பிறகு Public-ல் தெரியும்</p>
+                </div>
+                <div class="submit-side">
+                    <div class="team-image-box">
+                        <img src="../assets/images/team.webp" alt="Team">
+                        <div class="team-dialog">✨ இணைப்புப்பாலம் மூலம் வேலை பெறுங்க! ✨<br><small>உங்கள் திறமைக்கு ஏற்ற வேலை, உங்கள் ஊரிலேயே</small></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</section>
+
+<!-- Success Popup -->
+<div class="success-overlay" id="successOverlay"><div class="success-box"><div class="success-icon">✓</div><h2>பதிவு வெற்றி!</h2><button type="button" id="successClose" class="success-close">சரி</button></div></div>
+
+<!-- Footer -->
+<footer class="jobs-footer">
+    <div class="jobs-footer-inner">
+        <div class="jobs-footer-left"><p>© 2026 இணைப்புப்பாலம்</p></div>
+        <div class="jobs-footer-socials">
+            <a href="#"><img src="../assets/icons/Facebook.svg" alt="FB"></a>
+            <a href="#"><img src="../assets/icons/Instagram.svg" alt="IG"></a>
+            <a href="#"><img src="../assets/icons/YouTube.svg" alt="YT"></a>
+            <a href="#"><img src="../assets/icons/WhatsApp.svg" alt="WA"></a>
+        </div>
+    </div>
+</footer>
+
+<script src="../config.js"></script>
+<script src="job-seeker.js"></script>
+</body>
+</html>
