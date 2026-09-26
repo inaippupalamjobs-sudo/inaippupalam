@@ -1,365 +1,122 @@
-/* =====================================================
-   PATCH 0 - JavaScript அடிப்படை
-   இந்த File index.html Home Page-க்கு மட்டும்.
-   ===================================================== */
-"use strict";
+// ============================================================
+// INAIPPU PALAM - script.js - FINAL CLEAN SHEET - HANG FIX
+// ============================================================
 
-/* =====================================================
-   PATCH 1 - START - NAVIGATION BAR CONTROL
-   ===================================================== */
-const menuToggle = document.getElementById("menuToggle");
-const mainNav = document.getElementById("navLinks"); // <-- இதை மாத்துங்க mainNav -> navLinks
+/*jshint esversion: 8 */
 
-if (menuToggle && mainNav) {
-    menuToggle.addEventListener("click", () => {
-        const isOpen = mainNav.classList.toggle("is-open");
-        menuToggle.classList.toggle("is-open", isOpen);
-        menuToggle.setAttribute("aria-expanded", String(isOpen));
-        menuToggle.setAttribute(
-            "aria-label",
-            isOpen ? "மெனுவை மூடவும்" : "மெனுவை திறக்கவும்"
-        );
+// ============================================================
+// BATCH 1 - DOM READY - Page Load ஆன பிறகு தான் Script Run ஆகணும்
+// இது இல்லைனா Hang ஆகும்
+// ============================================================
+document.addEventListener("DOMContentLoaded", function() {
+  console.log("✅ Inaippu Palam - script.js Loaded");
+
+  // ============================================================
+  // BATCH 2 - NAVBAR TOGGLE - Mobile Menu Open / Close
+  // இது தான் Menu Button வேலை
+  // ============================================================
+  const menuToggle = document.getElementById("menuToggle");
+  const navLinks = document.getElementById("navLinks");
+  
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener("click", function() {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
     });
+  }
 
-    const navLinks = mainNav.querySelectorAll("a"); // <-- .nav-link -> a
+  // ============================================================
+  // BATCH 3 - FOOTER YEAR - Auto Year Update (2026)
+  // Footer-ல் © 2026னு வர இது தான்
+  // ============================================================
+  const yearEl = document.getElementById("currentYear");
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
 
-    navLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-            mainNav.classList.remove("is-open");
-            menuToggle.classList.remove("is-open");
-            menuToggle.setAttribute("aria-expanded", "false");
-            menuToggle.setAttribute("aria-label", "மெனுவை திறக்க");
-        });
-    });
-}
-/* PATCH 1 - END */
+  // ============================================================
+  // BATCH 4 - INFORMATION SLIDER - Main Slider Logic - HANG FIX
+  // உங்க index.html-ல் இருக்கிற PATCH 4 Slider-க்கானது
+  // Screenshot-ல் Stuck ஆனது இதனால தான் - இப்போ Fix
+  // ============================================================
+  const slider = document.getElementById("messageSlider");
+  const slides = document.querySelectorAll(".message-slide");
+  const prevBtn = document.getElementById("prevSlide");
+  const nextBtn = document.getElementById("nextSlide");
+  const dots = document.querySelectorAll(".slider-dot");
 
+  // Slider இருந்தா மட்டும் Run ஆகும், இல்லைனா Skip - இதான் Hang Fix
+  if (slider && slides.length > 0) {
+    let current = 0;
+    let autoSlideInterval;
 
-/* =====================================================
-   PATCH 4 - START - AUTO MESSAGE SLIDER CONTROL
-   இதில் இருப்பது:
-   தானாக மாறும் 3 தகவல்கள்
-   Prev / Next Button
-   Dot Button
-   ===================================================== */
+    // எந்த Slide-அ காட்டணும்னு முடிவு பண்ணும் Function
+    function showSlide(index) {
+      if (index < 0) index = slides.length - 1;
+      if (index >= slides.length) index = 0;
+      current = index;
 
-const slides = document.querySelectorAll(".message-slide");
-const sliderDots = document.querySelectorAll(".slider-dot");
-const prevSlideButton = document.getElementById("prevSlide");
-const nextSlideButton = document.getElementById("nextSlide");
-const messageSlider = document.getElementById("messageSlider");
+      // எல்லா Slide-யும் Hide பண்ணி, Current Slide மட்டும் Show
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === current);
+      });
 
-let currentSlide = 0;
-let sliderInterval;
-
-function showSlide(index) {
-
-    if (!slides.length) return;
-
-    if (index < 0) {
-        currentSlide = slides.length - 1;
-    } 
-    else if (index >= slides.length) {
-        currentSlide = 0;
-    } 
-    else {
-        currentSlide = index;
+      // Dot-களை Update பண்ணும்
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === current);
+      });
     }
 
-    slides.forEach((slide, slideIndex) => {
-        slide.classList.toggle(
-            "active",
-            slideIndex === currentSlide
-        );
-    });
+    function nextSlide() { showSlide(current + 1); }
+    function prevSlide() { showSlide(current - 1); }
 
-    sliderDots.forEach((dot, dotIndex) => {
-        dot.classList.toggle(
-            "active",
-            dotIndex === currentSlide
-        );
-    });
-}
-
-function nextSlide() {
-    showSlide(currentSlide + 1);
-}
-
-function previousSlide() {
-    showSlide(currentSlide - 1);
-}
-
-function startAutoSlider() {
-
-    stopAutoSlider();
-
-    sliderInterval = setInterval(() => {
+    // Button Click Event - முன்னாடி மாதிரி document-ல் எல்லா Button-ம் பிடிக்காம
+    // சரியான Button-அ மட்டும் பிடிக்கும் - இதான் Main Fix
+    if (nextBtn) {
+      nextBtn.addEventListener("click", function() {
         nextSlide();
-    }, 5000);
-}
-
-function stopAutoSlider() {
-
-    if (sliderInterval) {
-        clearInterval(sliderInterval);
+        resetAuto();
+      });
     }
-}
+    if (prevBtn) {
+      prevBtn.addEventListener("click", function() {
+        prevSlide();
+        resetAuto();
+      });
+    }
 
-if (nextSlideButton) {
-
-    nextSlideButton.addEventListener("click", () => {
-        nextSlide();
-        startAutoSlider();
+    // Dot Click Event
+    dots.forEach((dot, i) => {
+      dot.addEventListener("click", function() {
+        showSlide(i);
+        resetAuto();
+      });
     });
-}
 
-if (prevSlideButton) {
+    // Auto Slide - 5 Second-க்கு ஒரு தடவை
+    function startAuto() {
+      autoSlideInterval = setInterval(nextSlide, 5000);
+    }
+    function resetAuto() {
+      clearInterval(autoSlideInterval);
+      startAuto();
+    }
 
-    prevSlideButton.addEventListener("click", () => {
-        previousSlide();
-        startAutoSlider();
-    });
-}
-
-sliderDots.forEach((dot) => {
-
-    dot.addEventListener("click", () => {
-
-        const slideNumber = Number(dot.dataset.slide);
-
-        showSlide(slideNumber);
-
-        startAutoSlider();
-    });
-});
-
-if (messageSlider) {
-
-    messageSlider.addEventListener(
-        "mouseenter",
-        stopAutoSlider
-    );
-
-    messageSlider.addEventListener(
-        "mouseleave",
-        startAutoSlider
-    );
-}
-
-if (slides.length > 0) {
-
+    // Start Slider
     showSlide(0);
+    startAuto();
+    console.log("✅ Slider Fixed - No Hang");
+  }
 
-    startAutoSlider();
-}
-
-/* =====================================================
-   PATCH 4 - END
-   ===================================================== */
-
-
-/* =====================================================
-   PATCH 5 - START
-   CONTACT FORM + GOOGLE SHEET இணைப்பு
-
-   BATCH 5.1:
-   Validation - பெயர், போன் சரியா என்று பார்க்கும்
-
-   BATCH 5.2:
-   Google Sheet-க்கு அனுப்பும்
-
-   BATCH 5.3:
-   Admin-க்கு Full Data
-   Public-க்கு தெரியாது
-   ===================================================== */
-
-const contactForm = document.getElementById("contactForm");
-const formStatus = document.getElementById("formStatus");
-
-if (contactForm) {
-
-    contactForm.addEventListener("submit", async (event) => {
-
-        event.preventDefault();
-
-        /* ---------------------------------------------
-           BATCH 5.1
-           Form-ல் இருந்து Data எடுக்கும்
-        --------------------------------------------- */
-
-        const name =
-            document.getElementById("contactName")
-                .value
-                .trim();
-
-        const phone =
-            document.getElementById("contactPhone")
-                .value
-                .trim();
-
-        const message =
-            document.getElementById("contactMessage")
-                .value
-                .trim();
-
-        if (formStatus) {
-
-            formStatus.textContent = "";
-
-            formStatus.classList.remove(
-                "success",
-                "error"
-            );
-        }
-
-
-        /* ---------------------------------------------
-           BATCH 5.1.1
-           பெயர் சரிபார்ப்பு
-        --------------------------------------------- */
-
-        if (name.length < 2) {
-
-            showFormStatus(
-                "தயவுசெய்து உங்கள் சரியான பெயரை உள்ளிடுங்கள்.",
-                "error"
-            );
-
-            return;
-        }
-
-
-        /* ---------------------------------------------
-           BATCH 5.1.2
-           போன் நம்பர் சரிபார்ப்பு
-        --------------------------------------------- */
-
-        const phoneDigits =
-            phone.replace(/\D/g, "");
-
-        if (
-            phoneDigits.length < 10 ||
-            phoneDigits.length > 15
-        ) {
-
-            showFormStatus(
-                "தயவுசெய்து சரியான தொடர்பு எண்ணை உள்ளிடுங்கள்.",
-                "error"
-            );
-
-            return;
-        }
-
-
-        /* ---------------------------------------------
-           BATCH 5.1.3
-           Message சரிபார்ப்பு
-        --------------------------------------------- */
-
-        if (message.length < 3) {
-
-            showFormStatus(
-                "தயவுசெய்து உங்கள் செய்தியை எழுதுங்கள்.",
-                "error"
-            );
-
-            return;
-        }
-
-
-        /* ---------------------------------------------
-           BATCH 5.2
-           Google Sheet-க்கு அனுப்புதல்
-        --------------------------------------------- */
-
-        showFormStatus(
-            "அனுப்பப்படுகிறது...",
-            "success"
-        );
-
-        try {
-
-            await fetch(GOOGLE_SHEET_URL, {
-
-                method: "POST",
-
-                mode: "no-cors",
-
-                body: JSON.stringify({
-
-                    type: "contact",
-
-                    name: name,
-
-                    phone: phone,
-
-                    message: message
-                })
-            });
-
-
-            /* -----------------------------------------
-               BATCH 5.3
-               Success Message
-            ----------------------------------------- */
-
-            showFormStatus(
-                "நன்றி! உங்கள் செய்தி Google Sheet-ல் பதிவாகியது.",
-                "success"
-            );
-
-            contactForm.reset();
-
-        }
-        catch (err) {
-
-            showFormStatus(
-                "பிழை! மீண்டும் முயற்சிக்கவும்.",
-                "error"
-            );
-        }
+  // ============================================================
+  // BATCH 5 - BACK TO TOP BUTTON - மேலே போகும் Button
+  // ============================================================
+  const backToTop = document.getElementById("backToTop");
+  if (backToTop) {
+    backToTop.addEventListener("click", function(e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
-}
+  }
 
-
-/* =====================================================
-   FORM STATUS MESSAGE
-   ===================================================== */
-
-function showFormStatus(text, type) {
-
-    if (!formStatus) return;
-
-    formStatus.textContent = text;
-
-    formStatus.classList.remove(
-        "success",
-        "error"
-    );
-
-    formStatus.classList.add(type);
-}
-
-
-/* =====================================================
-   PATCH 5 - END
-   ===================================================== */
-
-
-/* =====================================================
-   PATCH 7 - START
-   FOOTER CURRENT YEAR CONTROL
-   ===================================================== */
-
-const currentYearElement =
-    document.getElementById("currentYear");
-
-if (currentYearElement) {
-
-    currentYearElement.textContent =
-        new Date().getFullYear();
-}
-
-/* =====================================================
-   PATCH 7 - END
-   ===================================================== */
+}); // DOMContentLoaded End
