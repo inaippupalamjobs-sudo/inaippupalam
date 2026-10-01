@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>வேலை தேடுபவர் | இணைப்புப்பாலம்</title>
+    <link rel="icon" type="image/png" href="../assets/logo/logo.png">
+    <link rel="stylesheet" href="job-seekers.css">
+</head>
+<body>
+
+<!-- PATCH 1: NAVIGATION BAR -->
+<header class="site-header">
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="brand"><img src="../assets/logo/logo.png" alt="Logo" class="brand-logo"></a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Menu"><span></span><span></span><span></span></button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../index.html">முகப்பு</a></li>
+        <li><a href="../job-seekers/job-seekers.html" class="active">வேலைவேண்டும் 🔥</a></li>
+        <li><a href="../job-providers/job-providers.html">ஆட்கள்வேண்டும்</a></li>
+        <li><a href="../public/jobs/jobs.html">வேலைகொடுப்பவர்கள்</a></li>
+        <li><a href="../public/seekers/seekers.html">வேலைதேடுபவர்கள்</a></li>
+        
+        </div>
+  </nav>
+</header>
+
+<section class="form-section">
+    <div class="section-heading">
+        <span class="section-tag">JOB SEEKER REGISTRATION</span>
+        <h1>உங்கள் விவரங்களை பதிவு செய்யுங்கள்</h1>
+    </div>
+
+   <h2>கீழே கேட்கப்பட்டுள்ள விவரங்களை நிரப்புங்கள் * உள்ளவை கட்டாயம்</h2>
+
+    <form id="seekerForm">
+
+        <!-- PATCH 3 / BATCH 06: தனிப்பட்ட விவரங்கள் -->
+        <div class="form-card">
+            <div class="card-title">
+                <div class="title-icon">👤</div>
+                <div>
+                    <h3>தனிப்பட்ட விவரங்கள்</h3>
+                    <p>உங்களைப் பற்றிய அடிப்படை தகவல்கள்</p>
+                </div>
+            </div>
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label for="fullName">முழுப் பெயர் <span>*</span></label>
+                    <input type="text" id="fullName" name="Full Name" placeholder="உங்கள் பெயர்" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="age">வயது <span>*</span></label>
+                    <input type="number" id="age" name="Age" min="18" max="80" placeholder="Ex: 25" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="gender">பாலினம் <span>*</span></label>
+                    <select id="gender" name="Gender" required>
+                        <option value="">தேர்வு செய்க</option>
+                        <option value="male">ஆண்</option>
+                        <option value="female">பெண்</option>
+                        <option value="other">மற்றவை</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="maritalStatus">திருமண நிலை</label>
+                    <select id="maritalStatus" name="Marital Status">
+                        <option value="">தேர்வு செய்க</option>
+                        <option value="unmarried">ஆகாதவர்</option>
+                        <option value="married">ஆனவர்</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="education">கல்வித் தகுதி <span>*</span></label>
+                    <select id="education" name="Education" required>
+    <option value="">தேர்வு செய்யவும்</option>
+    <option value="படிப்பு இல்லை">படிப்பு இல்லை</option>
+    <option value="தொடக்கக் கல்வி">தொடக்கக் கல்வி</option>
+    <option value="10ஆம் வகுப்பு / SSLC">10ஆம் வகுப்பு / SSLC</option>
+    <option value="12ஆம் வகுப்பு / HSC">12ஆம் வகுப்பு / HSC</option>
+    <option value="ITI">ITI</option>
+    <option value="டிப்ளமோ">டிப்ளமோ</option>
+    <option value="பட்டப்படிப்பு">பட்டப்படிப்பு</option>
+    <option value="முதுகலைப் பட்டம்">முதுகலைப் பட்டம்</option>
+    <option value="மற்றவை">மற்றவை</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="course">படிப்பு / Course</label>
+                    <input type="text" id="course" name="Course" placeholder="Ex: B.Com, Tailoring">
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- PATCH 4 / BATCH 07: வேலை மற்றும் திறமைகள் -->
+        <div class="form-card">
+            <div class="card-title">
+                <div class="title-icon">💼</div>
+                <div>
+                    <h3>வேலை மற்றும் திறமைகள்</h3>
+                    <p>உங்களுக்கு ஏற்ற வேலை</p>
+                </div>
+            </div>
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label for="jobType">விரும்பும் வேலை <span>*</span></label>
+                    <select id="jobType" name="Preferred Job" required>
+                        <option value="">தேர்வு செய்க</option>
+                        <option value="கடை வேலை">கடை வேலை </option>
+                        <option value="அலுவலக வேலை">அலுவலக வேலை</option>
+                        <option value="சமையல்">வீட்டு வேலை</option>
+                        <option value="கல்வி">ஆசிரியர்</option>
+                        <option value="தையல்">தையல் </option>
+                        <option value="டிரைவர்">டிரைவர் </option>
+                        <option value="மெக்கானிக்">மெக்கானிக்</option>
+                        <option value="தொழிற்சாலை">தொழிற்சாலை</option>
+                        <option value="ஹோட்டல்">ஹோட்டல்</option>
+                        <option value="பாதுகாவலர்">பாதுகாவலர்</option>
+                        <option value="டெலிவரி">டெலிவரி</option>
+                        <option value="நர்சிங்">நர்சிங்</option>
+                        <option value="அழகுக்கலை">அழகுக்கலை</option>
+                        <option value="ஃபார்ம் வேலை">ஃபார்ம் வேலை</option>
+                        <option value="கட்டுமானம்">கட்டுமானம்</option>
+                        <option value="கூலி வேலை">கூலி வேலை</option>
+                        <option value="ஒப்பந்த வேலைகள்">ஒப்பந்த வேலைகள்</option>
+                        <option value="மற்றவை">மற்றவை</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="jobVariety">வேலை வகை</label>
+                    <input type="text" id="jobVariety" name="Job Type" placeholder="உதா: Auto/Car/Lorry Driver, Singer Tailor">
+                </div>
+
+                <div class="form-group">
+                    <label for="experience">அனுபவம் <span>*</span></label>
+                    <select id="experience" name="Experience" required>
+                        <option value="">தேர்வு செய்க</option>
+                        <option value="no-experience">அனுபவம் இல்லை</option>
+                        <option value="1-year">1 வருடம்</option>
+                        <option value="2-years">2 வருடம்</option>
+                        <option value="3-years">3 வருடம்</option>
+                        <option value="4-years">4 வருடம்</option>
+                        <option value="5-years">5 வருடம் மற்றும் அதற்கு மேல்</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="workType">வேலை நேரம்</label>
+                    <select id="workType" name="Work Type">
+                        <option value="">தேர்வு</option>
+                        <option value="full-time">Full Time - முழு நேரம்</option>
+                        <option value="part-time">Part Time - பகுதி நேரம்</option>
+                        <option value="Night-time">Night duty - இரவுப் பணி</option>
+                        <option value="temporarily">Temporarily - தற்காலிகமாக</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="expectedSalary">எதிர்பார்க்கும் சம்பளம்</label>
+                    <input type="text" id="expectedSalary" name="Expected Salary" inputmode="numeric" placeholder="15000">
+                </div>
+
+                <div class="form-group">
+                    <label for="joiningAvailability">எப்போது வர முடியும்?</label>
+                    <select id="joiningAvailability" name="Joining Availability">
+                        <option value="">தேர்வு செய்க</option>
+                        <option value="immediately">உடனடி</option>
+                        <option value="within-week">ஒரு வாரத்தில்</option>
+                        <option value="within-15-days">15 நாட்களில்</option>
+                        <option value="within-month">ஒரு மாதத்தில்</option>
+                        <option value="Depending on the job">வேலையைப் பொறுத்து</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- PATCH 5 / BATCH 08: இருப்பிடம் & தொடர்பு -->
+        <div class="form-card">
+            <div class="card-title">
+                <div class="title-icon">📍</div>
+                <div>
+                    <h3>இருப்பிடம் & தொடர்பு</h3>
+                    <p>தகவல்களுக்கு</p>
+                </div>
+            </div>
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label for="district">மாவட்டம் <span>*</span></label>
+                    <select id="district" name="District" required>
+                        <option value="">மாவட்டத்தைத் தேர்வு செய்க</option>
+                        <option value="ariyalur">அரியலூர்</option>
+                        <option value="chengalpattu">செங்கல்பட்டு</option>
+                        <option value="chennai">சென்னை</option>
+                        <option value="coimbatore">கோயம்புத்தூர்</option>
+                        <option value="cuddalore">கடலூர்</option>
+                        <option value="dharmapuri">தருமபுரி</option>
+                        <option value="dindigul">திண்டுக்கல்</option>
+                        <option value="erode">ஈரோடு</option>
+                        <option value="kallakurichi">கள்ளக்குறிச்சி</option>
+                        <option value="kancheepuram">காஞ்சிபுரம்</option>
+                        <option value="kanniyakumari">கன்னியாகுமரி</option>
+                        <option value="karur">கரூர்</option>
+                        <option value="krishnagiri">கிருஷ்ணகிரி</option>
+                        <option value="madurai">மதுரை</option>
+                        <option value="mayiladuthurai">மயிலாடுதுறை</option>
+                        <option value="nagapattinam">நாகப்பட்டினம்</option>
+                        <option value="namakkal">நாமக்கல்</option>
+                        <option value="perambalur">பெரம்பலூர்</option>
+                        <option value="pudukkottai">புதுக்கோட்டை</option>
+                        <option value="ramanathapuram">ராமநாதபுரம்</option>
+                        <option value="ranipet">ராணிப்பேட்டை</option>
+                        <option value="salem">சேலம்</option>
+                        <option value="sivaganga">சிவகங்கை</option>
+                        <option value="tenkasi">தென்காசி</option>
+                        <option value="thanjavur">தஞ்சாவூர்</option>
+                        <option value="theni">தேனி</option>
+                        <option value="the-nilgiris">நீலகிரி</option>
+                        <option value="thoothukudi">தூத்துக்குடி</option>
+                        <option value="tiruchirappalli">திருச்சிராப்பள்ளி</option>
+                        <option value="tirunelveli">திருநெல்வேலி</option>
+                        <option value="tirupathur">திருப்பத்தூர்</option>
+                        <option value="tiruppur">திருப்பூர்</option>
+                        <option value="tiruvallur">திருவள்ளூர்</option>
+                        <option value="tiruvannamalai">திருவண்ணாமலை</option>
+                        <option value="tiruvarur">திருவாரூர்</option>
+                        <option value="vellore">வேலூர்</option>
+                        <option value="viluppuram">விழுப்புரம்</option>
+                        <option value="virudhunagar">விருதுநகர்</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="city">தாலுகா <span>*</span></label>
+                    <input type="text" id="city" name="City" placeholder="உதா: பொள்ளாச்சி" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">ஊர் / தெரு / வீட்டு எண்</label>
+                    <input type="text" id="address" name="Address" placeholder="உதா: ஆனைமலை, மேன் தெரு, No.12">
+                </div>
+
+                <div class="form-group">
+                    <label for="pincode">பின்கோடு</label>
+                    <input type="text" id="pincode" name="Pincode" maxlength="6" inputmode="numeric" placeholder="உதா: 642101">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">தொடர்பு எண் <span>*</span></label>
+                    <input type="tel" id="phone" name="Phone" maxlength="10" inputmode="numeric" placeholder="10 இலக்க எண்" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phoneType">போன் வகை <span>*</span></label>
+                    <select id="phoneType" name="Phone Type" required>
+                        <option value="">தேர்வு செய்க</option>
+                        <option value="smartphone">ஸ்மார்ட்போன்</option>
+                        <option value="button-phone">பட்டன் போன்</option>
+                        <option value="no-phone">போன் இல்லை</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- PATCH 6 / BATCH 09: வாகன விவரங்கள் + வேலை செய்ய விரும்பும் பகுதி -->
+        <div class="form-card">
+            <div class="card-title">
+                <div class="title-icon">🛵</div>
+                <div>
+                    <h3>வாகனம் & வேலை செய்ய விரும்பும் பகுதி</h3>
+                    <p>வேலை தொடர்பான கூடுதல் தகவல்கள்</p>
+                </div>
+            </div>
+
+            <div class="form-grid">
+
+                <!-- ஒரே Vehicle field -->
+                <div class="form-group">
+                    <label for="vehicle">வாகனம் உள்ளதா / என்ன வாகனம்?</label>
+                    <select id="vehicle" name="Vehicle">
+                        <option value="">தேர்வு செய்க</option>
+                        <option value="no-vehicle">வாகனம் இல்லை</option>
+                        <option value="cycle">சைக்கிள்</option>
+                        <option value="two-wheeler">டூ வீலர் / பைக்</option>
+                        <option value="three-wheeler">த்ரீ வீலர் / ஆட்டோ</option>
+                        <option value="four-wheeler">ஃபோர் வீலர் / கார்</option>
+                    </select>
+                </div>
+
+                <!-- புதிய முக்கிய தகவல் -->
+                <div class="form-group">
+                    <label for="preferredWorkArea">வேலை செய்ய விரும்பும் பகுதி <span>*</span></label>
+                    <select id="preferredWorkArea" name="Preferred Work Area" required>
+                        <option value="">தேர்வு செய்க</option>
+                        <option value="own-area">சொந்த ஊர் மட்டும்</option>
+                        <option value="nearby">அருகிலுள்ள பகுதிகள்</option>
+                        <option value="district">மாவட்டம் முழுவதும்</option>
+                        <option value="tamil-nadu">தமிழ்நாடு முழுவதும்</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- PATCH 7 / BATCH 10: புகைப்படம் & பதிவு -->
+        <div class="form-card photo-submit-card">
+            <div class="card-title">
+                <div class="title-icon">📸</div>
+                <div>
+                    <h3>புகைப்படம் & பதிவு <span>*</span></h3>
+                    <p>தெளிவான முக புகைப்படம் - கட்டாயம்</p>
+                </div>
+            </div>
+
+            <div class="photo-submit-grid">
+
+                <div class="photo-side">
+
+                    <div class="photo-preview" id="photoPreview">
+                        <span id="photoPlaceholder">👤</span>
+                       
+<img id="previewImage" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Crect fill='%23ddd' width='200' height='200'/%3E%3Ctext fill='%23999' x='50%25' y='50%25' text-anchor='middle' dy='.3em'%3ENo Image%3C/text%3E%3C/svg%3E" alt="Preview">
+
+                    </div>
+
+                    <div class="photo-action-group">
+                        <label for="profilePhoto" class="upload-button">📁 கேலரியில் இருந்து</label>
+                        <button type="button" id="selfieButton" class="upload-button selfie-button">🤳 செல்பி எடு</button>
+                    </div>
+
+                    <input type="file" id="profilePhoto" name="Photo" accept="image/*" hidden>
+
+                    <div id="selfieCameraWrap" class="selfie-camera-wrap" style="display:none;">
+                        <video id="selfieVideo" autoplay playsinline muted></video>
+                        <canvas id="selfieCanvas" style="display:none;"></canvas>
+
+                        <div class="selfie-controls">
+                            <button type="button" id="flipCameraBtn" class="flip-btn">🔄 பேக் கேமரா</button>
+                            <button type="button" id="capturePhotoBtn" class="capture-btn">📸 படம் எடு</button>
+                            <button type="button" id="retakePhotoBtn" class="retake-btn" style="display:none;">🔄 மீண்டும்</button>
+                            <button type="button" id="usePhotoBtn" class="use-btn" style="display:none;">✅ இதை பயன்படுத்து</button>
+                            <button type="button" id="closeCameraBtn" class="close-btn">❌ மூடு</button>
+                        </div>
+
+                        <p class="selfie-hint">முகம் நேரா தெரியிற மாதிரி வச்சு எடுங்க</p>
+                    </div>
+
+                    <p class="photo-hint" id="photoStatusText">Max 2MB - தெளிவான Photo</p>
+
+                    <label class="check-row big-check">
+                        <input type="checkbox" id="allowPublicPhoto" name="Allow Public Photo" value="yes">
+                        <span>
+                            <strong>இதை டிக் செய்தால்</strong> புகைப்படம் பொதுவெளியில் காட்டப்படும்.<br>
+                            <small>இல்லனா அவதார் காட்டப்படும்</small>
+                        </span>
+                    </label>
+
+                    <p class="privacy-note new-privacy">
+                        🔒 தொலைபேசி எண், முகவரி பொதுவில் காட்டப்படாது - நிர்வாகத்திற்கு மட்டும்
+                    </p>
+
+                    <button type="submit" class="submit-button" id="submitButton">
+                        <span>பதிவு செய்யவும்</span><strong>→</strong>
+                    </button>
+
+                    <p class="admin-note">Admin Approval-க்கு பிறகு Public-ல் தெரியும்</p>
+
+                </div>
+
+                <div class="submit-side">
+                    <div class="team-image-box">
+                        <img src="../assets/images/inaippu-3.jpg" alt="Team">
+                        <div class="team-dialog">
+                            ✨ இணைப்புப்பாலம் மூலம் வேலை பெறுங்க! ✨<br>
+                            <small>உங்கள் திறமைக்கு ஏற்ற வேலை, உங்கள் ஊரிலேயே</small>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- PATCH 7.5: Additional Info -->
+        <div class="form-card">
+            <div class="card-title">
+                <div class="title-icon">📝</div>
+                <div><h3>கூடுதல் தகவல்</h3></div>
+            </div>
+
+            <div class="form-grid">
+                <div class="form-group full-width">
+                    <label for="additionalInfo">கூடுதல் தகவல்</label>
+                    <textarea id="additionalInfo" name="Additional Info" placeholder="வேறு ஏதாவது தகவல் இருந்தால் எழுதுங்கள்"></textarea>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</section>
+
+
+<div class="success-overlay" id="successOverlay">
+    <div class="success-box">
+        <div class="success-icon">✓</div>
+        <h2>பதிவு வெற்றி!</h2>
+        <button type="button" id="successClose" class="success-close">சரி</button>
+    </div>
+</div>
+
+
+<footer class="jobs-footer">
+    <div class="jobs-footer-inner">
+        <div class="jobs-footer-left">
+            <p>© 2026 இணைப்புப்பாலம்</p>
+        </div>
+
+        <div class="jobs-footer-socials">
+            <a href="#"><img src="../assets/icons/Facebook.svg" alt="FB"></a>
+            <a href="#"><img src="../assets/icons/Instagram.svg" alt="IG"></a>
+            <a href="#"><img src="../assets/icons/YouTube.svg" alt="YT"></a>
+            <a href="#"><img src="../assets/icons/WhatsApp.svg" alt="WA"></a>
+        </div>
+    </div>
+</footer>
+
+<script src="../config.js"></script>
+<script src="job-seekers.js"></script>
+
+</body>
+</html>
